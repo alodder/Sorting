@@ -8,8 +8,22 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Hello World!");
 
-            BubbleSort testBubbleSort = new BubbleSort( BuildArray(10));
+            int[] array = BuildArray(10);
+
+            BubbleSort testBubbleSort = new BubbleSort( array);
+
+            Console.WriteLine( TestSort( array));
             Console.ReadKey();
+        }
+
+        private static string TestSort(int[] array)
+        {
+            for(int i=0; i<array.Length-1; i++)
+            {
+                if (array[i] < array[i+1])
+                    return "Not sorted!";
+            }
+            return "Sorted";
         }
 
         private static int[] BuildArray(int length)
