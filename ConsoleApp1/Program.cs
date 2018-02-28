@@ -8,13 +8,17 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Hello World!");
 
-            int[] array = BuildArray(100);
+            int[] array = BuildArray(10);
 
-            BubbleSort testBubbleSort = new BubbleSort( array);
+            //BubbleSort testBubbleSort = new BubbleSort( array);
 
-            array = BuildArray(100);
-            InsertionSort testInsertionSort = new InsertionSort( array);
+            array = BuildArray(10);
+            //InsertionSort testInsertionSort = new InsertionSort( array);
             PrintArray(array);
+
+            array = BuildArray(10);
+            MergeSort testMergeSort = new MergeSort(array);
+
             Console.WriteLine( TestSort( array));
             Console.ReadKey();
         }
