@@ -14,24 +14,28 @@ namespace ConsoleApp1
          */
 
         int[] array;
+        int operationCount;
 
         public InsertionSort(int[] arrayToSort)
         {
             this.array = arrayToSort;
-            int sortedIndex = 1;
+            operationCount = 0;
+            PrintArray();
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length-1; i++)
             {
-                int j = sortedIndex + 1;
-                while (j > i)
+                int j = i + 1;
+                Console.WriteLine("Comparing "+ array[j]);
+                while ((j > 0) && (array[j] < array[j-1]))
                 {
-                    PrintArray();
-                    if (array[j] < array[i])
-                        Shift(j);
+                    Shift(j);
                     j--;
-                    Console.WriteLine("Pass complete");
+                    operationCount++;
                 }
+                Console.WriteLine("Pass result: ");
+                PrintArray();
             }
+            Console.WriteLine(operationCount + " operations");
         }
 
         private void Shift(int index)

@@ -8,11 +8,11 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Hello World!");
 
-            int[] array = BuildArray(10);
+            int[] array = BuildArray(100);
 
             BubbleSort testBubbleSort = new BubbleSort( array);
 
-            array = BuildArray(10);
+            array = BuildArray(100);
             InsertionSort testInsertionSort = new InsertionSort( array);
             PrintArray(array);
             Console.WriteLine( TestSort( array));
@@ -38,7 +38,7 @@ namespace ConsoleApp1
 
             for (int i=0; i<length; i++)
             {
-                array[i] = rnd.Next(1, 50);
+                array[i] = rnd.Next(1, 1000);
                 Console.Write(".");
             }
 
