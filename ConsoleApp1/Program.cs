@@ -35,7 +35,7 @@ namespace ConsoleApp1
 
             for (int i=0; i<length; i++)
             {
-                array[i] = rnd.Next(1, 100);
+                array[i] = rnd.Next(1, 50);
                 Console.Write(".");
             }
 

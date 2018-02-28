@@ -13,7 +13,8 @@ namespace ConsoleApp1
         {
             array = arrayToSort;
             operationCount = 0;
-            Sort();
+            //Sort();
+            OptimizedSort();
         }
 
         private void Sort()
@@ -28,6 +29,30 @@ namespace ConsoleApp1
                     PrintArray();
                 }
             }
+            Console.WriteLine(operationCount + " operations");
+        }
+
+        private void OptimizedSort()
+        {
+            bool isSorted = false;
+            int compareLength = array.Length-1;
+            while (!isSorted)
+            {
+                isSorted = true;
+                for (int i=0; i < compareLength; i++)
+                {
+                    if (ComparePair(array[i], array[i+1]))
+                    {
+                        Swap(i, i+1);
+                        isSorted = false;
+                    }
+                    operationCount++;
+                    PrintArray();
+                }
+                Console.WriteLine("Pass complete");
+                compareLength--;
+            }
+            Console.WriteLine(operationCount + " operations");
         }
 
         private void PrintArray()
