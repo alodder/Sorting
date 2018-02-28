@@ -12,6 +12,9 @@ namespace ConsoleApp1
 
             BubbleSort testBubbleSort = new BubbleSort( array);
 
+            array = BuildArray(10);
+            InsertionSort testInsertionSort = new InsertionSort( array);
+            PrintArray(array);
             Console.WriteLine( TestSort( array));
             Console.ReadKey();
         }
@@ -40,6 +43,18 @@ namespace ConsoleApp1
             }
 
             return array;
+        }
+
+        private static void PrintArray(int[] array)
+        {
+            string printout = " ";
+            for (int i = 0; i < array.Length; i++)
+            {
+                printout += "[";
+                printout += array[i].ToString();
+                printout += "]";
+            }
+            Console.WriteLine(printout);
         }
     }
 }
