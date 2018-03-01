@@ -34,46 +34,35 @@ namespace ConsoleApp1
         /**
          * assuming inputs are sorted, merge two adjacent array partitions
          */
-        private void MergeArray(int[] sorted, int left, int right)
+        private void MergeArray(int[] sorted, int leftBound, int rightBound)
         {
-            int middle = (left + right) / 2;
-            int mergePointer = left;
+            int middle = (leftBound + rightBound) / 2;
+            int mergePointer = leftBound;
 
-            int pointLeft = left;
-            int pointRight = middle+1;
+            int leftMark = leftBound;
+            int rightMark = middle+1;
 
-            while((pointLeft <= middle) && (pointRight <= right))
+            while((leftMark <= middle) && (rightMark <= rightBound))
             {
-                if (array[pointLeft] < array[pointRight])
+                if (array[leftMark] < array[rightMark])
                 {
-                    Console.WriteLine(array[pointLeft] + " less than " + array[pointRight]);
-                    sorted[mergePointer] = array[pointLeft];
-                    PrintArray(sorted);
-                    pointLeft++;
+                    Console.WriteLine(array[leftMark] + " less than " + array[rightMark]);
+                    sorted[mergePointer] = array[leftMark];
+                    leftMark++;
                 }
                 else
                 {
-                    Console.WriteLine(array[pointLeft] + " more than " + array[pointRight]);
-                    sorted[mergePointer] = array[pointRight];
-                    PrintArray(sorted);
-                    pointRight++;
+                    Console.WriteLine(array[leftMark] + " more than " + array[rightMark]);
+                    sorted[mergePointer] = array[rightMark];
+                    rightMark++;
                 }
                 mergePointer++;
+                //PrintArray(array);
                 PrintArray(sorted);
             }
 
-            // copy remainder of elements in either right or left
-            ArrayCopy(array, pointLeft, sorted, middle - pointLeft + 1);
-            ArrayCopy(array, pointRight, sorted, right - middle + 1);
-            //ArrayCopy(sorted, pointRight, sorted, right - middle + 1);
-        }
-
-        private void ArrayCopy(int[] array, int point, int[] sorted, int count)
-        {
-            for(int i = point; i< (point + count); i++)
-            {
-                sorted[i] = array[i];
-            }
+            System.Array.ConstrainedCopy(array, leftMark, sorted, mergePointer, middle - leftMark + 1);
+            System.Array.ConstrainedCopy(array, rightMark, sorted, mergePointer, rightBound - rightMark + 1);
         }
 
         private void PrintArray(int[] array)

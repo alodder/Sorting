@@ -16,7 +16,7 @@ namespace ConsoleApp1
             //InsertionSort testInsertionSort = new InsertionSort( array);
             PrintArray(array);
 
-            array = BuildArray(10);
+            array = BuildArray(6);
             MergeSort testMergeSort = new MergeSort(array);
 
             Console.WriteLine( TestSort( array));
@@ -42,7 +42,7 @@ namespace ConsoleApp1
 
             for (int i=0; i<length; i++)
             {
-                array[i] = rnd.Next(1, 1000);
+                array[i] = rnd.Next(1, 100);
                 Console.Write(".");
             }
 
