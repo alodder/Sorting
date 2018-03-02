@@ -9,14 +9,15 @@ namespace ConsoleApp1
             Console.WriteLine("Hello World!");
 
             int[] array = BuildArray(10);
+            //SelectionSort testSelectionSort = new SelectionSort( array);
 
             //BubbleSort testBubbleSort = new BubbleSort( array);
 
-            array = BuildArray(10);
+            //array = BuildArray(10);
             //InsertionSort testInsertionSort = new InsertionSort( array);
             PrintArray(array);
 
-            array = BuildArray(6);
+            //array = BuildArray(6);
             MergeSort testMergeSort = new MergeSort(array);
 
             Console.WriteLine( TestSort( array));

@@ -11,10 +11,7 @@ namespace ConsoleApp1
         public MergeSort(int[] arrayToSort)
         {
             this.array = arrayToSort;
-            int[] sorted = new int[array.Length];
-            MergeSorter(sorted, 0, array.Length - 1);
-            arrayToSort = sorted;
-            PrintArray(array);
+            MergeSorter(new int[array.Length], 0, array.Length - 1);
         }
 
         //recursive mergesort
@@ -63,6 +60,7 @@ namespace ConsoleApp1
 
             System.Array.ConstrainedCopy(array, leftMark, sorted, mergePointer, middle - leftMark + 1);
             System.Array.ConstrainedCopy(array, rightMark, sorted, mergePointer, rightBound - rightMark + 1);
+            System.Array.ConstrainedCopy(sorted, leftBound, array, leftBound, sorted.Length);
         }
 
         private void PrintArray(int[] array)
