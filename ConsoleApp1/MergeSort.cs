@@ -59,8 +59,14 @@ namespace ConsoleApp1
             }
 
             System.Array.ConstrainedCopy(array, leftMark, sorted, mergePointer, middle - leftMark + 1);
+            System.Console.WriteLine("write sorted left");
+            PrintArray(sorted);
             System.Array.ConstrainedCopy(array, rightMark, sorted, mergePointer, rightBound - rightMark + 1);
-            System.Array.ConstrainedCopy(sorted, leftBound, array, leftBound, sorted.Length);
+            System.Console.WriteLine("write right");
+            PrintArray(sorted);
+            System.Array.ConstrainedCopy(sorted, leftBound, array, leftBound, rightBound-leftBound);
+            System.Console.WriteLine("Copy back: ");
+            PrintArray(array);
         }
 
         private void PrintArray(int[] array)
