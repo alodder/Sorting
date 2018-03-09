@@ -64,7 +64,7 @@ namespace ConsoleApp1
             System.Array.ConstrainedCopy(array, rightMark, sorted, mergePointer, rightBound - rightMark + 1);
             System.Console.WriteLine("write right");
             PrintArray(sorted);
-            System.Array.ConstrainedCopy(sorted, leftBound, array, leftBound, rightBound-leftBound);
+            System.Array.ConstrainedCopy(sorted, leftBound, array, leftBound, rightBound-leftBound+1);
             System.Console.WriteLine("Copy back: ");
             PrintArray(array);
         }

@@ -28,7 +28,7 @@ namespace ConsoleApp1
         {
             for(int i=0; i<array.Length-1; i++)
             {
-                if (array[i] < array[i+1])
+                if (array[i] > array[i+1])
                     return "Not sorted!";
             }
             return "Sorted";
